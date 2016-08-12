@@ -1,0 +1,97 @@
+{
+	"method": "$context.httpMethod",
+	"body" : $input.json('$'),
+	"headers": {
+		#foreach($param in $input.params().header.keySet())
+			"$param": "$util.escapeJavaScript($input.params().header.get($param))" #if($foreach.hasNext),#end
+		#end
+	},
+	"queryParams": {
+		#foreach($param in $input.params().querystring.keySet())
+			"$param": "$util.escapeJavaScript($input.params().querystring.get($param))" #if($foreach.hasNext),#end
+		#end
+	},
+	"pathParams": {
+		#foreach($param in $input.params().path.keySet())
+			"$param": "$util.escapeJavaScript($input.params().path.get($param))" #if($foreach.hasNext),#end
+		#end
+	},
+	"wtf": "$input.params('wtf')",
+	"sofakingramdom": "$input.params('sofakingramdom')"
+}
+
+{
+    "wtf": "srs",
+    "sofakingrandom": "srsly"
+}
+
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": "lambda:InvokeFunction",
+			"Resource": "*"
+		}
+	]
+}
+
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Resource": [
+				"*"
+			],
+			"Action": [
+				"lambda:InvokeFunction",
+				"iam:PassRole"
+			]
+		}
+	]
+}
+
+{
+	"Version": "2012-10-17",
+	"Statement": [{
+		"Effect": "Allow",
+		"Principal": {
+			"Service": "lambda.amazonaws.com"
+		},
+		"Action": "sts:AssumeRole"
+	}]
+}
+
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Principal": {
+				"Service": "lambda.amazonaws.com"
+			},
+			"Action": "sts:AssumeRole"
+		},
+		{
+			"Effect": "Allow",
+			"Action": "sts:AssumeRole",
+			"Resource": "arn:aws:execute-api:us-west-2:051597199710:5cj0z2fsc7/*/GET/"
+		}
+	]
+}
+
+$input.path('$.wtf') $input.path('$.sofakingrandom')
+
+arn:aws:execute-api:us-west-2:051597199710:5cj0z2fsc7/*/GET/
+/2015-03-31/functions/arn:aws:lambda:us-west-2:051597199710:function:KThera/Invocations
+arn:aws:lambda:us-west-2:051597199710:function:KThera
+arn:aws:iam::051597199710:role/apigAWSProxyRole
+arn:aws:iam::051597199710:role/kthera
+arn:aws:iam::aws:policy/AWSLambdaFullAccess
+
+curl -X GET -H "Content-Type: application/json" https://5cj0z2fsc7.execute-api.us-west-2.amazonaws.com/1/kthera/srs
+curl -X POST -H "Content-Type: application/json" -d '{"wtf": "srs"}' https://5cj0z2fsc7.execute-api.us-west-2.amazonaws.com/1/kthera
+curl -X POST -H "Content-Type: application/json" -d '{"wtf": "srs"}' \ https://5cj0z2fsc7.execute-api.us-west-2.amazonaws.com/1/kthera
+
+$.post('https://5cj0z2fsc7.execute-api.us-west-2.amazonaws.com/1/kthera', {'wtf': 'srs'}, function(response) { console.log(response); });
