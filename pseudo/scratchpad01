@@ -1,3 +1,6 @@
+1) Use AWS Lambda panel to create functions - do NOT use API gateway panel to create the APIs first!
+2) Create a Lambda, go to API Gateway panel, go to 
+
 {
 	"method": "$context.httpMethod",
 	"body" : $input.json('$'),
