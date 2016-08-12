@@ -76,22 +76,22 @@
 		{
 			"Effect": "Allow",
 			"Action": "sts:AssumeRole",
-			"Resource": "arn:aws:execute-api:us-west-2:051597199710:5cj0z2fsc7/*/GET/"
+			"Resource": "arn:aws:execute-api:us-west-2:051597199710:42mm5q0z4h/*/GET/"
 		}
 	]
 }
 
 $input.path('$.wtf') $input.path('$.sofakingrandom')
 
-arn:aws:execute-api:us-west-2:051597199710:5cj0z2fsc7/*/GET/
+arn:aws:execute-api:us-west-2:051597199710:42mm5q0z4h/*/GET/
 /2015-03-31/functions/arn:aws:lambda:us-west-2:051597199710:function:KThera/Invocations
 arn:aws:lambda:us-west-2:051597199710:function:KThera
 arn:aws:iam::051597199710:role/apigAWSProxyRole
 arn:aws:iam::051597199710:role/kthera
 arn:aws:iam::aws:policy/AWSLambdaFullAccess
 
-curl -X GET -H "Content-Type: application/json" https://5cj0z2fsc7.execute-api.us-west-2.amazonaws.com/1/kthera/srs
-curl -X POST -H "Content-Type: application/json" -d '{"wtf": "srs"}' https://5cj0z2fsc7.execute-api.us-west-2.amazonaws.com/1/kthera
-curl -X POST -H "Content-Type: application/json" -d '{"wtf": "srs"}' \ https://5cj0z2fsc7.execute-api.us-west-2.amazonaws.com/1/kthera
+curl -X GET -H "Content-Type: application/json" https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/api?uwot=m8
+https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/api
+curl -X POST -H "Content-Type: application/json" -d '{"ufokinwot": "m8", "siknoscope": "m9"}' https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/api
 
-$.post('https://5cj0z2fsc7.execute-api.us-west-2.amazonaws.com/1/kthera', {'wtf': 'srs'}, function(response) { console.log(response); });
+$.post('https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/api', {'wtf': 'srs'}, function(response) { console.log(response); });
