@@ -1,25 +1,41 @@
 from __future__ import print_function
+# from flask import request
 
-import json
-import urllib
 import boto3
+#import flask
+import json
+#import request
+import sys
+import time
+import urllib
 
-print('Loading function')
+print('Initializing K\'Thera')
 
 s3 = boto3.client('s3')
-
+# s3 = boto3.resource('s3')
 
 def lambda_handler(event, context):
-    #print("Received event: " + json.dumps(event, indent=2))
+	data = {}
+	data['event'] = event
+    log_filename = '1337.txt'
+    data['s3_upload_results'] = upload_to_s3('kthera', 'beeswax_archive/' + log_filename, 'DANKALICIOUS!!!!oneone\nSIKK NO SCOPEZ M9');
 
-    # Get the object from the event and show its content type
-    bucket = event['Records'][0]['s3']['bucket']['name']
-    key = urllib.unquote_plus(event['Records'][0]['s3']['object']['key').encode('utf8'))
-    try:
-        response = s3.get_object(Bucket=bucket, Key=key)
-        print("CONTENT TYPE: " + response['ContentType'])
-        return response['ContentType']
-    except Exception as e:
-        print(e)
-        print('Error getting object {} from bucket {}. Make sure they exist and your bucket is in the same region as this function.'.format(key, bucket))
-        raise e
+	# json_data = json.dumps(data)
+	# print('Content-type: text/html\n\n')
+	# print('Content-type: application/json\n\n')
+	# print(json_data)
+	# return json_data
+
+	return data
+
+def upload_to_s3(bucket_name, filepath, data):
+	result = False;
+	try:
+		# http://boto3.readthedocs.io/en/latest/reference/services/s3.html
+		s3.Bucket(bucket_name).put_object(ACL = 'private', Body = data, Key = filepath)
+		result = True;
+	except Exception as e:
+		print(e)
+		print('Error setting object {} in bucket {}.'.format(filepath, bucket_name))
+		raise e
+	return result

@@ -12,44 +12,17 @@ import urllib
 print('Initializing K\'Thera')
 
 # s3 = boto3.client('s3')
-# s3 = boto3.resource('s3')
-# firehose = boto3.client('firehose')
+firehose = boto3.client('firehose')
 dynamodb = boto3.client('dynamodb')
 
 def lambda_handler(event, context):
-	# print('{"wtf":"srs"}');
 	data = {}
 	data['event'] = event
 	# data['context'] = context
-	# print(data)
 
-	# json_data = json.dumps(data)
-	# print('Content-type: text/html\n\n')
-	# print('Content-type: application/json\n\n')
-	# print(json_data)
-	# return json_data
+    data['firehose_upload_results'] = upload_to_firehose('kthera', [{'Data': 'DANKALICIOUS!!!!oneone\nSIKK NO SCOPEZ M9\n'}, {'Data': 'DA SIKKEST 720NOSCOPE!!!11oneone\n420BLAZEIT\n\n'}])
 
-	# log_filename = '1337.txt'
-	# data['s3_upload_results'] = upload_to_s3('kthera', 'beeswax_archive/' + log_filename, 'DANKALICIOUS!!!!oneone\nSIKK NO SCOPEZ M9');
-	# data['firehose_upload_results'] = upload_to_firehose(
-		# 'kthera',
-		# [
-			# {
-				# 'Data': 'DANKALICIOUS!!!!oneone\nSIKK NO SCOPEZ M9\n'
-			# },
-			# {
-				# 'Data': 'DA SIKKEST 720NOSCOPE!!!11oneone\n420BLAZEIT\n\n'
-			# }
-		# ]
-	# )
-
-	data['dynamodb_results'] = insert_into_dynamodb(
-		'kthera_beeswax_feed',
-		{
-			'request_id': {'N': '1337'},
-			'json': {'S': '{"uwot": "m8??"}'}
-		}
-	)
+	data['dynamodb_results'] = insert_into_dynamodb('kthera_beeswax_feed', {'request_id': {'N': '1337'}, 'json': {'S': '{"uwot": "m8??"}'}})
 
 	return data
 
@@ -64,18 +37,6 @@ def insert_into_dynamodb(table_name, data):
 		print(e)
 		raise e
 	return result;
-
-def upload_to_s3(bucket_name, filepath, data):
-	result = False;
-	try:
-		# http://boto3.readthedocs.io/en/latest/reference/services/s3.html
-		s3.Bucket(bucket_name).put_object(ACL = 'private', Body = data, Key = filepath)
-		result = True;
-	except Exception as e:
-		print(e)
-		print('Error setting object {} in bucket {}.'.format(filepath, bucket_name))
-		raise e
-	return result
 
 def upload_to_firehose(firehose_name, records):
 	result = False;
