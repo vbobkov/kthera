@@ -1,3 +1,22 @@
+# YOU'RE FUCKING EVIL, CURL
+# http://stackoverflow.com/questions/3872427/how-to-send-line-break-with-curl
+
+curl -X POST -H "Content-Type: text/html" --data-binary "@/Users/victor/git/kthera/pseudo/augmentor_sample_request_1.txt" https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
+curl -X POST -H "Content-Type: text/html" -d '
+{
+	"ufokinwot": "m8",
+	"siknoscope": "m9"
+}
+' https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
+curl -X POST -H "Content-Type: text/html" --data "@/Users/victor/git/kthera/pseudo/augmentor_sample_request_1.txt" https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
+curl -X POST -H "Content-Type: text/html" --data "@/Users/victor/git/kthera/pseudo/augmentor_sample_request_0b.txt" https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
+curl -X POST -H "Content-Type: text/html" --data "@/Users/victor/git/kthera/pseudo/augmentor_sample_request_0.txt" https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
+curl -X POST -H "Content-Type: text/html" -d '{"ufokinwot": "m8", "siknoscope": "m9"}' https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
+curl -X POST -H "Content-Type: text/html" -d '' https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
+
+cd /Users/victor/git/kthera/lambda
+zip -r ../lambda.zip ./
+
 1) Use AWS Lambda panel to create functions - do NOT use API gateway panel to create the APIs first!
 2) Create a Lambda, go to API Gateway panel, go to 
 

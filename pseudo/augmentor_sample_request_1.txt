@@ -1,0 +1,216 @@
+bid_request {
+  id: "426"
+  imp {
+    id: "123"
+    bidfloor: 3.14
+    tagid: "123456"
+    video {
+      mimes: "video/x-flv"
+      linearity: LINEAR
+      minduration: 15
+      maxduration: 30
+      protocols: VAST_2_0
+      w: 500
+      h: 400
+      startdelay: 0
+      battr: AD_CAN_BE_SKIPPED
+      playbackmethod: AUTOPLAY_SOUND_ON
+      pos: ABOVE_THE_FOLD
+      companionad {
+        w: 300
+        h: 60
+        mimes: "image/gif"
+      }
+      api: VPAID_1_0
+    }
+    secure: 0
+    ext {
+      placements: "youtube/afv_user_id_cbs"
+      placement_type: VIDEO
+      environment_type: WEB
+    }
+  }
+  site {
+    id: "12345"
+    domain: "www.cheese.com"
+    pagecat: "/Home & Garden"
+    page: "www.cheese.com/query?=best_cheese"
+    publisher {
+      id: "adx/45"
+    }
+    content {
+      title: "Big Bang Theory"
+      keywords: "comedy,primetime,cbs_connect"
+      contentrating: "Video Content Rating DV-PG"
+      context: VIDEO
+      len: 1200
+      qagmediarating: EVERYONE_12
+      language: "en,zh"
+    }
+  }
+  device {
+    ua: "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36"
+    ip: "49.50.51.0"
+    geo {
+      country: "USA"
+      region: "USA/NY"
+      city: "NY"
+      metro: "501"
+    }
+  }
+  tmax: 100
+  bcat: "Food & Drink"
+  regs {
+    coppa: NO
+  }
+  ext {
+    inventory_source: GOOGLE_ADX
+    augmentor_data {
+      id: "BW_Managed_List"
+      segment {
+        id: "app_id_list"
+        value: "1"
+      }
+      segment {
+        id: "app_bundle_list"
+        value: "2"
+      }
+    }
+  }
+}
+===
+bid_request {
+ id: "LR_5356b2630fc162.16583113"
+ imp {
+   id: "1"
+   video {
+     mimes: "video/mp4"
+     mimes: "video/x-flv"
+     mimes: "video/webm"
+     linearity: LINEAR
+     minduration: 0
+     maxduration: 30
+     protocols: VAST_2_0
+     protocols: VAST_2_0_WRAPPER
+     api: VPAID_1_0
+     w: 320
+     h: 480
+     startdelay: 0
+     minbitrate: 300
+     playbackmethod: CLICK_TO_PLAY
+     ext {
+       placement_type: IN_STREAM
+     }
+   }
+   displaymanager: "LiveRail"
+   instl: YES
+   ext {
+     placement_type: VIDEO
+     environment_type: APP
+   }
+ }
+ app {
+   id: "13110"
+   name: "Premium Game Developer Pad Interstitial"
+   domain: ""
+   ver: ""
+   bundle: ""
+   publisher {
+     id: "13110"
+     domain: ""
+   }
+   content {
+     id: ""
+     title: "Test"
+     url: ""
+     context: OTHER
+     livestream: NO
+     len: 30
+   }
+ }
+ device {
+   ua: "Mozilla/5.0 (iPad; CPU OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko)  Mobile/11B554a"
+   ifa: "236A005B-700F-4889-B9CE-999EAB2B605D"
+   ip: "74.77.137.243"
+   dpidsha1: "2b6f0cc904d137be2e1730235f5664094b831186"
+   carrier: "att"
+   make: "Apple"
+   model: "iPad"
+   os: "iOS"
+   osv: "7_0_4"
+   connectiontype: WIFI
+ }
+ user {
+   id: "236A005B-700F-4889-B9CE-999EAB2B605D"
+   buyeruid: ""
+ }
+ ext {
+   inventory_source: LIVERAIL
+ }
+}
+===
+bid_request {
+ id: "iyjqXBKN"
+ imp {
+   id: "iyjqXBKN"
+   banner {
+     w: 216
+     h: 36
+     pos: ABOVE_THE_FOLD
+     btype: XHTML_TEXT
+     battr: SURVEYS
+     battr: AUDIO_AUTO_PLAY
+     topframe: NO
+     expdir: UP
+   }
+   instl: YES
+   tagid: "376120"
+   secure: 0
+   ext {
+     placement_type: BANNER
+     environment_type: WEB
+   }
+ }
+ site {
+   id: "382201"
+   domain: "slacker.com"
+   pagecat: "IAB3"
+   page: "http://www.slacker.com/"
+   ref: "http://www.sayrecipes.com/saucy-beef-short-ribs/"
+   publisher {
+     id: "775847"
+     domain: "slacker.com"
+   }
+   keywords: ""
+ }
+ device {
+   dnt: YES
+   ua: "Mozilla/5.0 (iPad; CPU OS 5_1_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1  Mobile/9B206 Safari/7534.48.3"
+   ip: "88.41.186.120"
+   geo {
+     lat: -86.93
+     lon: -4.355
+     country: "USA"
+     region: "England"
+     metro: "LA-SFO"
+     city: "London"
+     zip: "40838"
+     type: IP
+   }
+   language: "fr"
+   os: "BLACKBERRY"
+   osv: "597144"
+ }
+ user {
+   id: "hIsfWaAD"
+   yob: 1779
+   gender: "M"
+ }
+ ext {
+   inventory_source: PULSEPOINT
+   targeting_geo: {
+    lat: 122.0
+    lon: 22.4
+  }
+ }
+}

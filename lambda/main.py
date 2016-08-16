@@ -1,10 +1,12 @@
 from __future__ import print_function
 # from flask import request
 
+import base64
 import boto3
 #import flask
 import json
-#import request
+# import request
+# import requests
 import sys
 import time
 import urllib
@@ -17,12 +19,16 @@ dynamodb = boto3.client('dynamodb')
 
 def lambda_handler(event, context):
 	data = {}
-	data['event'] = event
+	# data['event'] = event
 	# data['context'] = context
+	# data['body'] = event['body']
+	# data['body'] = event['body'] + '\n===\n'
+	data['body'] = base64.b64decode(event['body']) + '\n===\n'
 
-    data['firehose_upload_results'] = upload_to_firehose('kthera', [{'Data': 'DANKALICIOUS!!!!oneone\nSIKK NO SCOPEZ M9\n'}, {'Data': 'DA SIKKEST 720NOSCOPE!!!11oneone\n420BLAZEIT\n\n'}])
+	# data['firehose_upload_results'] = upload_to_firehose('kthera', [{'Data': 'DANKALICIOUS!!!!oneone\nSIKK NO SCOPEZ M9\n'}, {'Data': 'DA SIKKEST 720NOSCOPE!!!11oneone\n420BLAZEIT\n\n'}])
+	# data['firehose_upload_results'] = upload_to_firehose('kthera', [{'Data': event['body']}])
 
-	data['dynamodb_results'] = insert_into_dynamodb('kthera_beeswax_feed', {'request_id': {'N': '1337'}, 'json': {'S': '{"uwot": "m8??"}'}})
+	# data['dynamodb_results'] = insert_into_dynamodb('kthera_beeswax_feed', {'request_id': {'N': '1337'}, 'json': {'S': '{"uwot": "m8??"}'}})
 
 	return data
 
