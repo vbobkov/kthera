@@ -1,6 +1,10 @@
 # YOU'RE FUCKING EVIL, CURL
 # http://stackoverflow.com/questions/3872427/how-to-send-line-break-with-curl
 
+curl -X POST -H "Content-Type: text/html" --data-binary "@/Users/victor/git/kthera/logo/100px-Greek_lc_lamda_thin.svg.png" https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
+curl -X POST -H "Content-Type: text/html" --data-binary "@/Users/victor/git/kthera/logo/kthera-logo1a.png" https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
+curl -X POST -H "Content-Type: text/html, Content-Encoding: gzip" --data "@/Users/victor/git/kthera/pseudo/augmentor_sample_request_1.txt.gz" https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
+
 curl -X POST -H "Content-Type: text/html" --data-binary "@/Users/victor/git/kthera/pseudo/augmentor_sample_request_1.txt" https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
 curl -X POST -H "Content-Type: text/html" -d '
 {
@@ -8,9 +12,10 @@ curl -X POST -H "Content-Type: text/html" -d '
 	"siknoscope": "m9"
 }
 ' https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
-curl -X POST -H "Content-Type: text/html" --data "@/Users/victor/git/kthera/pseudo/augmentor_sample_request_1.txt" https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
-curl -X POST -H "Content-Type: text/html" --data "@/Users/victor/git/kthera/pseudo/augmentor_sample_request_0b.txt" https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
-curl -X POST -H "Content-Type: text/html" --data "@/Users/victor/git/kthera/pseudo/augmentor_sample_request_0.txt" https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
+
+curl -X POST -H "Content-Type: text/html" --data-binary "@/Users/victor/git/kthera/pseudo/augmentor_sample_request_1.txt" https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
+curl -X POST -H "Content-Type: text/html" --data-binary "@/Users/victor/git/kthera/pseudo/augmentor_sample_request_0b.txt" https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
+curl -X POST -H "Content-Type: text/html" --data-binary "@/Users/victor/git/kthera/pseudo/augmentor_sample_request_0.txt" https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
 curl -X POST -H "Content-Type: text/html" -d '{"ufokinwot": "m8", "siknoscope": "m9"}' https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
 curl -X POST -H "Content-Type: text/html" -d '' https://42mm5q0z4h.execute-api.us-west-2.amazonaws.com/1/kthera
 
