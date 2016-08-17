@@ -1,12 +1,13 @@
 ##  See http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 ##  'official' hack for allowing non-JSON POST bodies: https://forums.aws.amazon.com/thread.jspa?messageID=713334
+## "body" : $input.json('$'),
 ## "body" : "$util.escapeJavaScript($input.body)",
 ## "body" : "$util.escapeJavaScript($input.body).replaceAll("\'", "'")",
 ## "body" : "$input.body.replaceAll("\"". "\\\"")",
 ## "body" : "$util.base64Encode($input.body)",
 ## "body" : "$util.escapeJavaScript($input.body).replaceAll(/(?:\r\n|\r|\n)/g, "<br />")",
 {
-	"body" : "$util.base64Encode($input.body)",
+	"body" : "$util.escapeJavaScript($input.body).replaceAll("\'", "'")",
 	"stage-variables" : {
 		#foreach($key in $stageVariables.keySet())
 		"$key" : "$util.escapeJavaScript($stageVariables.get($key))"

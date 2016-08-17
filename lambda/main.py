@@ -33,7 +33,7 @@ def lambda_handler(event, context):
 	# data['dynamodb_results'] = insert_into_dynamodb('kthera_beeswax_feed', {'request_id': {'N': '1337'}, 'json': {'S': '{"uwot": "m8??"}'}})
 
 	data['body'] = event['body']
-	data['decoded_body'] = base64.b64decode(data['body'])
+	# data['decoded_body'] = base64.b64decode(data['body'])
 
 	start2 = time.time()
 	dynamodb_augmentor_settings = get_augmentor_settings_from_dynamodb()
@@ -43,8 +43,8 @@ def lambda_handler(event, context):
 	end3 = time.time()
 
 	start4 = time.time()
-	# data['firehose_upload_results'] = upload_to_firehose('kthera', [{'Data': data['decoded_body']}])
-	firehose_thread = threading.Thread(target = upload_to_firehose, args = ('kthera', [{'Data': data['decoded_body']}]))
+	# data['firehose_upload_results'] = upload_to_firehose('kthera', [{'Data': data['body']}])
+	firehose_thread = threading.Thread(target = upload_to_firehose, args = ('kthera', [{'Data': data['body']}]))
 	# firehose_thread.daemon = True
 	firehose_thread.start()
 	end4 = time.time()
@@ -52,10 +52,10 @@ def lambda_handler(event, context):
 	# return data['dynamodb_augmentor_settings']
 
 	end = time.time()
-	data['et'] = end - start
-	data['et2'] = end2 - start2
-	data['et3'] = end3 - start3
-	data['et4'] = end4 - start4
+	data['et_total'] = end - start
+	data['et_dynamodb'] = end2 - start2
+	data['et_json_parse'] = end3 - start3
+	data['et_firehose_thread'] = end4 - start4
 	# return data['body']
 	# return data['decoded_body']
 	return data
